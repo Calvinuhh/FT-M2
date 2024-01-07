@@ -1,1 +1,22 @@
 // Mixins acá
+
+.flex(@aling: center) {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: @aling;
+}
+
+.btn_register(@background: @btn-bg-color, @color: @wild-sand) {
+  background-color: @background;
+  color: @color;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(3, 3, 112);
+  }
+}

@@ -52,11 +52,19 @@ ToDo.prototype.completeToDo = function () {
 function buildToDo(todo, index) {
   // Tu código acá:
   let toDoShell = document.createElement("div");
-  toDoShell.classList.add("toDoShell");
+  toDoShell.className = 'toDoShell';
 
   let toDoText = document.createElement("span");
-
   toDoText.innerHTML = todo.description;
+
+  toDoShell.id = index;
+
+  if (todo.complete) {
+    toDoText.classList.add("completeText");
+  }
+
+  toDoShell.appendChild(toDoText);
+  return toDoShell
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
@@ -66,7 +74,7 @@ function buildToDo(todo, index) {
 
 function buildToDos(toDos) {
   // Tu código acá:
-  return toDos.map((todo, index) => buildToDo (todo, index));
+  return toDos.map(buildToDo);
 }
 
 // La función 'displayToDos' se va a encargar de que se vean los toDo's en pantalla
@@ -83,7 +91,7 @@ function displayToDos() {
   let toDoContainer = document.querySelector("#toDoContainer");
   toDoContainer.innerHTML = "";
 
-  buildToDos(toDoItems).map((todo) => toDoContainer.appendChild(todo))
+  buildToDos(toDoItems).map((todo) => toDoContainer.appendChild(todo));
 }
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
@@ -97,6 +105,14 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
+  let toDoInput = document.querySelector("#toDoInput").value;
+  let newToDo = new ToDo(toDoInput);
+  toDoItems.push(newToDo);
+  toDoInput.className = toDoInput;
+
+  toDoInput.value = "";
+
+  displayToDos();
 }
 
 // Agregar un 'Event Listener' para que cada vez que el botón 'AGREGAR' sea clickeado
@@ -105,6 +121,8 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+let addButton = document.querySelector("#addButton");
+addButton.addEventListener("click", addToDo);
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
 // [NOTA: Algunas cuestiones a tener en cuenta
@@ -120,8 +138,9 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  //const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
+
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen

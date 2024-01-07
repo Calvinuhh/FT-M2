@@ -2,6 +2,12 @@
 
 .home {
   .intro {
+    .flex();
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // align-items: center;
+
     h2 {
       padding: 15px;
     }
@@ -11,16 +17,44 @@
     }
   }
 
+  img {
+    border-radius: 20px;
+    width: 90%;
+  }
+
+
   .music-images {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+
+    @media screen and (max-width: @phone) {
+        flex-direction: column;
+    }
 
     img {
       width: 28%;
       margin: 20px 2.5%;
       border-radius: 20px;
       height: 100%;
+    }
+
+    .ondas{
+      @media screen and (max-width: @phone) {
+        display: none;
+      }
+    }
+
+    .tecnologia{
+      @media screen and (max-width: @phone) {
+        display: none;
+        }
+    }
+
+    .auricular {
+      @media screen and (max-width: @phone) {
+        width: 90%;
+      }
     }
   }
 
@@ -42,9 +76,17 @@
     padding: 50px 60px;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: @phone) {
+        flex-direction: column-reverse;
+    }
+
+    
 
     .actual-text {
       width: 50%;
+      @media screen and (max-width: @phone) {
+      width: 100%;        
+      }
 
       h3 {
         margin-bottom: 10px;
@@ -55,12 +97,17 @@
       }
 
       .btn {
+        .btn_register();
       }
     }
 
     .actual-img {
       width: 46%;
       margin-left: 4%;
+      @media screen and (max-width: @phone) {
+        width: 100%;
+        margin-bottom: 20px;     
+      }
 
       img {
         width: 100%;

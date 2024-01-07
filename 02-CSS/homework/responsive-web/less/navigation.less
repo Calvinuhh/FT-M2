@@ -1,1 +1,30 @@
 // Código de Nav acá
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: @nav-bg;
+  flex-direction: column;
+  margin-bottom: 10px;
+  align-items: center;
+
+  h1 {
+    color: @header-font-color;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+
+  ul {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 40%;
+    padding-bottom: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: @nav-font;
+    font-weight: bold;
+  }
+}
